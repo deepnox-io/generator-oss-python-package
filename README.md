@@ -91,7 +91,7 @@ Please refer to [the changelog file](CHANGELOG.md).
 > 
 > [The MIT License](https://opensource.org/licenses/MIT)
 > 
-> Copyright (c) 2021 [Deepnox SAS](https://deepnox.io), Paris, France <img src="https://github.com/hampusborgos/country-flags/raw/main/svg/fr.svg" width="16" /> <opensource@deepnox.io> 
+> Copyright (c) 2021 [Deepnox SAS](https://deepnox.io), Paris, France <img src="https://github.com/hampusborgos/country-flags/raw/main/svg/fr.svg" width="16" /> 
 > 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
