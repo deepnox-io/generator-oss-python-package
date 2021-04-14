@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "François Michaud, Deepnox SAS",
+      "authorEmail": "opensource@deepnox.io",
+      "authorUrl": "https://deepnox.io"
+    }
+  }
+}
