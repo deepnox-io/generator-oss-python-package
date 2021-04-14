@@ -68,18 +68,15 @@ Please refer to project's style guidelines and guidelines for submitting patches
 
 ## <a name="credits">Credits</a>
 
-
-## <a name="resources">Resources</a>
-
 ### Getting to know Yeoman
 
 * Yeoman has a heart of gold.
 * Yeoman is a person with feelings and opinions, but is very easy to work with.
 * Yeoman can be too opinionated at times but is easily convinced not to be.
+
+## <a name="resources">Resources</a>
+
 * Feel free to [learn more about Yeoman](http://yeoman.io/).
-
-### References
-
 * [Making a Python package](https://python-packaging-tutorial.readthedocs.io/en/latest/setup_py.html)
 
 ## <a name="history">History</a>

@@ -1,0 +1,57 @@
+---
+# # <%= project.name %> CI/CD
+#
+# CI/CD configuration for [CircleCI](https://circleci.com).
+#
+# ## Synopsis
+#
+# CI/CD configuration for [CircleCI](https://circleci.com).
+#
+
+version: 2.1
+
+orbs:
+  python: circleci/python@<<pipeline.parameters.dev-orb-version>>
+  orb-tools: circleci/orb-tools@9.1
+
+# Pipeline parameters
+parameters:
+  # These pipeline parameters are required by the "trigger-integration-tests-workflow"
+  # job, by default.
+  run-integration-tests:
+    type: boolean
+    default: false
+  dev-orb-version:
+    type: string
+    default: "dev:alpha"
+
+jobs:
+  pip-install-test:
+    docker:
+      - image: circleci/python:3.7.10-buster-node-browsers-legacy
+        environment:
+          PYTHONPATH: ./app
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: "Unit tests"
+          command: |
+            python setup.py test
+      - run:
+          name: "CoveragePy measures code coverage"
+          command: |
+            python setup.py coverage
+      - run:
+          name: "Upload code coverage to Codacy"
+          command: |
+            bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
+
+
+
+workflows:
+  unit-tests_prod-release:
+    jobs:
+      - pip-install-test
+      # - pip-install-test-args

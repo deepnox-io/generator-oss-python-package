@@ -1,0 +1,39 @@
+project:
+  description:
+    short:
+    synopsis:
+  copyright:
+    years:
+
+author:
+  name:
+  company:
+    name:
+    email:
+    url:
+    city:
+    country:
+      name:
+      code:
+
+package:
+  name:
+  version:
+
+license:
+  name:
+  description:
+
+vcs:
+  github:
+    organization:
+    repository:
+
+compatibility:
+  python:
+    versions: [3.6, 3.7, 3.8, 3.9]
+
+badges:
+  codacy:
+    token:
+

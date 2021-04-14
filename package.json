@@ -3,11 +3,7 @@
   "version": "0.0.0",
   "description": "A Yeoman generate to prepare a standardized open source Python package.",
   "homepage": "https://github.com/deepnox-io/generator-oss-python-package",
-  "author": {
-    "name": "François Michaud, Deepnox SAS",
-    "email": "opensource@deepnox.io",
-    "url": "https://deepnox.io"
-  },
+  "author": "François Michaud, Deepnox SAS <opensource@deepnox.io> (https://deepnox.io)",
   "files": [
     "generators"
   ],
@@ -81,6 +77,12 @@
     "pretest": "eslint .",
     "test": "jest"
   },
-  "repository": "deepnox-io/generator-oss-python-package",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepnox-io/generator-oss-python-package.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deepnox-io/generator-oss-python-package/issues"
+  }
 }
