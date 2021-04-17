@@ -1,41 +1,50 @@
-'use strict';
-const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
+const Generator = require("yeoman-generator")
+const _ = require('lodash')
+const schema = require("./schema")
 
 
 module.exports = class extends Generator {
-  prompting() {
-    // Have Yeoman greet the user.
-    this.log(
-      yosay(
-        `Welcome to the breathtaking ${chalk.red('generator-oss-python-package')} generator!`
-      )
-    );
 
-    const prompts = [
+  async prompting() {
+    const answers = await this.prompt([
       {
-        type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
-        default: true
+        type: "input",
+        name: '{"project": {"name": null } }',
+        message: "What is your project name?"
+      },
+      {
+        type: "input",
+        name: '{"project": {"description": {"short": null } } }',
+        message: "A short description of your project?"
+      },
+      {
+        type: "input",
+        name: '{"project": {"description": {"synopsis": null } } }',
+        message: "Official synopsis of your project?"
       }
-    ];
+    ]);
 
-    return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-    });
+
+    this.schema = schema
+    Object.keys(answers).forEach((key) => {
+      console.log(`key = ${key}`)
+      const finalKey = key.replace('null', `"${answers[key]}"`)
+      const o = JSON.parse(finalKey)
+      const attr = Object.keys(o)[0]
+      console.log(o[attr])
+      this.schema[attr] = _.mergeWith( this.schema[attr] ? this.schema[attr] : {}, o[attr])
+
+
+      console.log('--- ' + attr + ' ' + JSON.stringify(this.schema[attr]))
+    })
+
   }
 
   writing() {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+    this.fs.copyTpl(
+      this.templatePath('README.md'),
+      this.destinationPath('public/README.md'),
+      this.schema
     );
-  }
-
-  install() {
-    this.installDependencies();
   }
 };

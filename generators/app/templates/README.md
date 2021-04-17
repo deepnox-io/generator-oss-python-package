@@ -1,15 +1,13 @@
-# <%= project.name %>
-
-> <%= project.description.short %>
-
 [![Build Status][circleci-image]][circleci-url]
 [![PyPI version][pypi-image]][pypi-url]
 [![Codacy quality][codacy-quality-image]][codacy-quality-url]
 [![Codacy coverage][codacy-coverage-image]][codacy-coverage-url]
 [![License][license-image]][license-url]
-<img src="https://github.com/hampusborgos/country-flags/raw/main/svg/<% author.company.country.code %>.svg" width="16" />
+<img src="https://github.com/hampusborgos/country-flags/raw/main/svg/<%= license.author.company.country.code %>.svg" width="16" />
 
+# <%= project.name %>
 
+> <%= project.description.short %>
 
 ## Table of Contents
 
@@ -59,7 +57,7 @@ python3 setup.py test
 
 ## <a name="compatibility">Compatibility</a>
 
-<% package.compatibility.python_versions.forEach(function(version){ %>
+<% package.compatibility.python.versions.forEach((version) =>{ %>
 * [Python <%= version %>](https://docs.python.org/3/whatsnew/<%= version %>.html).
 <% }); %>
   
@@ -94,7 +92,7 @@ Please refer to [the changelog file](CHANGELOG.md).
 >
 > [The MIT License](https://opensource.org/licenses/MIT)
 >
-> Copyright (c) <%= project.copyright.years %> [<%= author.company.name %>](<%= author.company.url %>), <%= author.company.city %>, <%= author.company.country.name %> <img src="https://github.com/hampusborgos/country-flags/raw/main/svg/<% author.company.country.code %>.svg" width="16" />
+> Copyright (c) <%= license.copyright.years %> [<%= license.author.company.name %>](<%= license.author.company.url %>), <%= license.author.company.city %>, <%= license.author.company.country.name %> <img src="https://github.com/hampusborgos/country-flags/raw/main/svg/<% license.author.company.country.code %>.svg" width="16" />
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
@@ -118,14 +116,14 @@ Please refer to [the changelog file](CHANGELOG.md).
 [pypi-image]: https://img.shields.io/pypi/v/<%= package.name %>.svg
 [pypi-url]: https://pypi.python.org/pypi/<%= package.name %>/
 
-[circleci-image]: https://circleci.com/gh/<%= vcs.github.organization %>/<%= vcs.github.repository >.svg?style=shield
-[circleci-url]: https://app.circleci.com/pipelines/github/<%= vcs.github.organization %>/<%= vcs.github.repository >
+[circleci-image]: https://circleci.com/gh/<%= vcs.github.organization %>/<%= vcs.github.repository %>.svg?style=shield
+[circleci-url]: https://app.circleci.com/pipelines/github/<%= vcs.github.organization %>/<%= vcs.github.repository %>
 
-[codacy-quality-image]: https://app.codacy.com/project/badge/Grade/<%= badges.codacy.token %>
-[codacy-quality-url]: https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=<%= vcs.github.organization %>/<%= vcs.github.repository >&utm_campaign=Badge_Coverage
+[codacy-quality-image]: https://app.codacy.com/project/badge/Grade/<%= integrations.codacy.token %>
+[codacy-quality-url]: https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=<%= vcs.github.organization %>/<%= vcs.github.repository %>&utm_campaign=Badge_Coverage
 
-[codacy-coverage-image]: https://app.codacy.com/project/badge/Coverage/<%= badges.codacy.token %>
-[codacy-coverage-url]: https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=<%= vcs.github.organization %>/<%= vcs.github.repository >&utm_campaign=Badge_Coverage
+[codacy-coverage-image]: https://app.codacy.com/project/badge/Coverage/<%= integrations.codacy.token %>
+[codacy-coverage-url]: https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=<%= vcs.github.organization %>/<%= vcs.github.repository %>&utm_campaign=Badge_Coverage
 
 [license-img]: https://img.shields.io/pypi/l/<%= package.name %>.svg
 [license-url]: https://pypi.python.org/pypi/<%= package.name %>/

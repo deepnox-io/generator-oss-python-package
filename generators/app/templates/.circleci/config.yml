@@ -30,7 +30,7 @@ jobs:
     docker:
       - image: circleci/python:3.7.10-buster-node-browsers-legacy
         environment:
-          PYTHONPATH: ./app
+          PYTHONPATH: ./src
     steps:
       - checkout
       - python/install-packages:

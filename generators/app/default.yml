@@ -2,19 +2,7 @@ project:
   description:
     short:
     synopsis:
-  copyright:
-    years:
 
-author:
-  name:
-  company:
-    name:
-    email:
-    url:
-    city:
-    country:
-      name:
-      code:
 
 package:
   name:
@@ -23,6 +11,18 @@ package:
 license:
   name:
   description:
+  copyright:
+    years:
+  author:
+    name:
+    company:
+      name:
+      email:
+      url:
+      city:
+      country:
+        name:
+        code:
 
 vcs:
   github:
